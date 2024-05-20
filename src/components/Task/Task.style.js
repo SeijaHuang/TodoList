@@ -40,10 +40,11 @@ const Button = styled.button`
 
 const Content = styled.div`
   background: #f8f9fa;
-  min-width: 75%;
+  min-width: 74%;
   padding: 8px;
   border-radius: 8px;
   font-weight: 500;
+  color: #16425b;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (max-width: 1800px) {

@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Content = styled.input`
   background: #f8f9fa;
-  min-width: 75%;
+  min-width: 85%;
   padding: 9px;
   border: none;
   outline: none;
@@ -23,6 +23,8 @@ const Content = styled.input`
     color: #3a7ca5;
     font-size: 1rem;
   }
+  @media (max-width: 1800px) {
+    min-width: 75%;
   @media (max-width: 1200px) {
     max-width: 75%;
   }

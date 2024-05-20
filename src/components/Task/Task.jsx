@@ -1,23 +1,29 @@
 import { useState } from 'react';
 import { Container, Content, Button } from './Task.style';
 
-function Task({ newTask, setCompletedTasks }) {
+function Task({ newTask, onCompletedTasks, onDeletedTasks }) {
   function updateComplete() {
     const updatedTasks = { ...newTask, isCompleted: true };
-    setCompletedTasks(updatedTasks);
+    onCompletedTasks(updatedTasks);
   }
   return (
     <Container>
       <Content
         style={{
           textDecoration: newTask.isCompleted ? 'line-through' : 'none',
-          color: newTask.isCompleted ? 'grey' : 'black',
+          color: newTask.isCompleted ? '#D9DCD6' : '#16425B',
         }}
       >
         {newTask.task}
       </Content>
       <Button onClick={() => updateComplete()}>Completed</Button>
-      <Button>Delete</Button>
+      <Button
+        onClick={() => {
+          onDeletedTasks(newTask);
+        }}
+      >
+        Delete
+      </Button>
     </Container>
   );
 }

@@ -12,6 +12,7 @@ import {
 function App() {
   const [Tasks, setTasks] = useState([]);
   const [completedTasks, setCompletedTasks] = useState([]);
+  const [deletedTasks, setDeletedTasks] = useState([]);
   const [showCompleted, setShowCompleted] = useState(true);
   function updateTasks(Tasks, completedTasks) {
     setTasks(
@@ -19,6 +20,10 @@ function App() {
         return task.id === completedTasks.id ? completedTasks : task;
       })
     );
+  }
+
+  function deleteTasks(Tasks, deletedTasks) {
+    setTasks(Tasks.filter((task) => task.id !== deletedTasks.id));
   }
 
   function toggleShowCompleted() {
@@ -47,15 +52,18 @@ function App() {
               <Task
                 key={task.id}
                 newTask={task}
-                setCompletedTasks={(completedTask) => {
+                onCompletedTasks={(completedTask) => {
                   setCompletedTasks(completedTask);
                   updateTasks(Tasks, completedTask);
+                }}
+                onDeletedTasks={(deletedTask) => {
+                  setDeletedTasks(deletedTask);
+                  deleteTasks(Tasks, deletedTask);
                 }}
               ></Task>
             );
           })}
         </ListContainer>
-        {console.log(Tasks, completedTasks)}
       </Container>
     </>
   );
