@@ -1,11 +1,22 @@
-import CompletedButton from './CompletedButton/CompletedButton';
-import Content from './Content/Content';
-import Container from './Task.style';
-function Task({ showTasks }) {
+import { useState } from 'react';
+import { Container, Content, Button } from './Task.style';
+
+function Task({ newTask, completedTask, setCompletedTasks }) {
+  function updateComplete() {
+    const updatedTasks = { ...newTask, isCompleted: true };
+    setCompletedTasks(updatedTasks);
+  }
   return (
     <Container>
-      <Content showTasks={showTasks} />
-      <CompletedButton />
+      <Content
+        style={{
+          textDecoration: newTask.isCompleted ? 'line-through' : 'none',
+          color: newTask.isCompleted ? 'grey' : 'black',
+        }}
+      >
+        {newTask.task}
+      </Content>
+      <Button onClick={() => updateComplete()}>Completed</Button>
     </Container>
   );
 }
