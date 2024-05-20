@@ -6,7 +6,8 @@ function AddNew({ onNewTasks }) {
   const [inputValue, setInputValue] = useState('');
   function addNewTask() {
     if (inputValue.trim() !== '') {
-      let newTask = { task: inputValue, isCompleted: false };
+      let currentTime = new Date().getTime();
+      let newTask = { id: currentTime, task: inputValue, isCompleted: false };
       let newTaskList = [...taskList, newTask];
       setTaskList(newTaskList);
       onNewTasks(newTask);

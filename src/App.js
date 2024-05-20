@@ -16,7 +16,7 @@ function App() {
   function updateTasks(Tasks, completedTasks) {
     setTasks(
       Tasks.map((task) => {
-        return task.task === completedTasks.task ? completedTasks : task;
+        return task.id === completedTasks.id ? completedTasks : task;
       })
     );
   }
@@ -39,13 +39,13 @@ function App() {
           <Button onClick={toggleShowCompleted}>
             {showCompleted ? 'Hide Completed' : 'Show Completed'}
           </Button>
-          {Tasks.map((newTask, index) => {
+          {Tasks.map((newTask) => {
             if (!showCompleted && newTask.isCompleted) {
               return null;
             }
             return (
               <Task
-                key={index}
+                key={newTask.id}
                 newTask={newTask}
                 setCompletedTasks={(completedTask) => {
                   setCompletedTasks(completedTask);
@@ -55,6 +55,7 @@ function App() {
             );
           })}
         </ListContainer>
+        {console.log(Tasks, completedTasks)}
       </Container>
     </>
   );
