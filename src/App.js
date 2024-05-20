@@ -39,14 +39,14 @@ function App() {
           <Button onClick={toggleShowCompleted}>
             {showCompleted ? 'Hide Completed' : 'Show Completed'}
           </Button>
-          {Tasks.map((newTask) => {
-            if (!showCompleted && newTask.isCompleted) {
+          {Tasks.map((task) => {
+            if (!showCompleted && task.isCompleted) {
               return null;
             }
             return (
               <Task
-                key={newTask.id}
-                newTask={newTask}
+                key={task.id}
+                newTask={task}
                 setCompletedTasks={(completedTask) => {
                   setCompletedTasks(completedTask);
                   updateTasks(Tasks, completedTask);

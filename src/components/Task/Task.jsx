@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, Content, Button } from './Task.style';
 
-function Task({ newTask, completedTask, setCompletedTasks }) {
+function Task({ newTask, setCompletedTasks }) {
   function updateComplete() {
     const updatedTasks = { ...newTask, isCompleted: true };
     setCompletedTasks(updatedTasks);
@@ -17,6 +17,7 @@ function Task({ newTask, completedTask, setCompletedTasks }) {
         {newTask.task}
       </Content>
       <Button onClick={() => updateComplete()}>Completed</Button>
+      <Button>Delete</Button>
     </Container>
   );
 }

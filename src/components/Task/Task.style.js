@@ -6,6 +6,10 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   margin-bottom: 1rem;
+  @media (max-width: 1800px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 const Button = styled.button`
@@ -29,6 +33,9 @@ const Button = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  @media (max-width:1800px){
+    margin:1rem 1rem 0;
+  }
 }`;
 
 const Content = styled.div`
@@ -39,6 +46,9 @@ const Content = styled.div`
   font-weight: 500;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  @media (max-width: 1800px) {
+    width: 100%;
+  }
 `;
 
 export { Container, Button, Content };

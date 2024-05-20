@@ -11,7 +11,7 @@ const Container = styled.div`
 const Content = styled.input`
   background: #f8f9fa;
   min-width: 75%;
-  padding: 8px;
+  padding: 9px;
   border: none;
   outline: none;
   border-radius: 8px;
@@ -22,6 +22,9 @@ const Content = styled.input`
   &::placeholder {
     color: #3a7ca5;
     font-size: 1rem;
+  }
+  @media (max-width: 1200px) {
+    max-width: 75%;
   }
 `;
 
@@ -47,6 +50,9 @@ const Button = styled.button`
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  @media (max-width: 1200px) {
+    padding: 17px 20px;
+  }
 `;
 
 export { Container, Content, Button };
